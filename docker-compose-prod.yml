@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   e_morgue_api:
-    build:
-      context: ./e_morgue_api
-      dockerfile: Dockerfile
+    image: drepl/e_morgue_api:latest
     container_name: e_morgue_api
     ports:
       - "3000:3000" 
@@ -16,9 +14,7 @@ services:
       - app-network
 
   e_morgue_fe:
-    build:
-      context: ./e_morgue_fe 
-      dockerfile: Dockerfile
+    image: drepl/e_morgue_fe:latest
     container_name: e_morgue_fe
     ports:
       - "8080:80"
