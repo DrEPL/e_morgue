@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     container_name: e_morgue_fe
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - e_morgue_api
     networks:
