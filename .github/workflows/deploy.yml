@@ -42,7 +42,7 @@ jobs:
         with:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USERNAME }}
-          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          key: ${{ secrets.PRODUCTION_SCP_KEY }}
           source: "./docker-compose-prod.yml"
           target: "/e_morgue/docker-compose.yml"
 
