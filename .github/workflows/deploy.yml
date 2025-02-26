@@ -35,6 +35,12 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/e_morgue_fe:latest ./e_morgue_fe
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/e_morgue_fe:latest
+
+      # Étape 6 : Définir les permissions de la clé SSH privée
+      - name: Set correct permissions for SSH key
+        run: |
+          echo "${{ secrets.PRODUCTION_SSH_KEY }}" > SSH-KEY-SERVER-WEB.pem
+          chmod 600 SSH-KEY-SERVER-WEB.pem
       
       # Étape 6 : Copie de docker-compose-prod.yml sur le serveur de production
       - name: Copy docker-compose.yml to server
@@ -42,7 +48,7 @@ jobs:
         with:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USERNAME }}
-          key: ${{ secrets.PRODUCTION_SCP_KEY }}
+          key: SSH-KEY-SERVER-WEB.pem
           source: "./docker-compose-prod.yml"
           target: "/e_morgue/docker-compose.yml"
 
