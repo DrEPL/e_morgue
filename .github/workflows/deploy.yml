@@ -43,7 +43,7 @@ jobs:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USERNAME }}
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
-          source: "../../docker-compose-prod.yml"
+          source: "./docker-compose-prod.yml"
           target: "/e_morgue/docker-compose.yml"
 
       # Étape 6 : Déployer sur le serveur de production
