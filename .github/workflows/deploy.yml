@@ -56,4 +56,4 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/e_morgue_api:latest
             sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/e_morgue_fe:latest
-            sudo docker-compose -f /e_morgue/docker-compose.yml up -d
+            sudo docker-compose -f ./e_morgue/docker-compose.yml up -d
